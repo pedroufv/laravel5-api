@@ -21,6 +21,41 @@ class AuthController extends Controller
         return $this->respondWithToken($token);
     }
 
+    /**
+     * Requisitar token JWT
+     *
+     * @OA\Post(
+     *     tags={"auth"},
+     *     summary="authenticate user by credentials",
+     *     description="the user informs their credentials with email and password to get the access token",
+     *     path="/login",
+     *     @OA\RequestBody(
+     *          required=true,
+     *       @OA\JsonContent(
+     *          type="object",
+     *          @OA\Property(property="email", type="string"),
+     *          @OA\Property(property="password", type="string"),
+     *       )
+     *     ),
+     *     @OA\Response(
+     *      response="200", description="Token JWT"
+     *     ),
+     *     @OA\Response(
+     *         response="default",
+     *         description="unexpected error",
+     *         @OA\JsonContent(ref="#/components/schemas/ErrorModel"),
+     *         @OA\XmlContent(ref="#/components/schemas/ErrorModel"),
+     *         @OA\MediaType(
+     *             mediaType="text/xml",
+     *             @OA\Schema(ref="#/components/schemas/ErrorModel")
+     *         ),
+     *         @OA\MediaType(
+     *             mediaType="text/html",
+     *             @OA\Schema(ref="#/components/schemas/ErrorModel")
+     *         )
+     *     )
+     * )
+     */
     public function login()
     {
         $credentials = request(['email', 'password']);

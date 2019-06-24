@@ -25,11 +25,11 @@
                             "schema": {
                                 "properties": {
                                     "email": {
-                                        "description": "Requisitar token JWT",
+                                        "description": "Get token JWT",
                                         "type": "string"
                                     },
                                     "password": {
-                                        "description": "Requisitar token JWT",
+                                        "description": "Get token JWT",
                                         "type": "string"
                                     }
                                 },
@@ -41,6 +41,46 @@
                 "responses": {
                     "200": {
                         "description": "Token JWT"
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "content": {
+                            "text/xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorModel"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorModel"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorModel"
+                                }
+                            },
+                            "application/xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorModel"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "get all user",
+                "description": "get all user on database and paginate then",
+                "operationId": "App\\Http\\Controllers\\Api\\v1\\UserController::index",
+                "responses": {
+                    "200": {
+                        "description": "List of users"
                     },
                     "default": {
                         "description": "unexpected error",

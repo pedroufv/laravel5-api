@@ -22,7 +22,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Requisitar token JWT
+     * Get token JWT
      *
      * @OA\Post(
      *     tags={"auth"},

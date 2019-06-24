@@ -1,4 +1,10 @@
 <?php
 Route::group(['prefix' => 'v1'], function() {
+    Route::post('/register', 'Api\v1\AuthController@register')->name('api.v1.register');
+
+    Route::post('/login', 'Api\v1\AuthController@login')->name('api.v1.login');
+
+    Route::post('/logout', 'Api\v1\AuthController@logout')->name('api.v1.logout');
+
     Route::get('users', 'Api\v1\UserController@index')->name('api.v1.users.index');
 });

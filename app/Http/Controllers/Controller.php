@@ -23,17 +23,25 @@ class Controller extends BaseController
 }
 
 /**
- * @OA\Schema(
- *     schema="ErrorModel",
- *     required={"code", "message"},
- *     @OA\Property(
- *         property="code",
- *         type="integer",
- *         format="int32"
- *     ),
- *     @OA\Property(
- *         property="message",
- *         type="string"
- *     )
+ *  @OA\SecurityScheme(
+ *      type="http",
+ *      scheme="bearer",
+ *      securityScheme="bearerAuth",
+ *  )
+ */
+
+/**
+ *  @OA\Schema(
+ *      schema="ErrorModel",
+ *      required={"code", "message"},
+ *      @OA\Property(
+ *          property="code",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @OA\Property(
+ *          property="message",
+ *          type="string"
+ *      )
  * )
  */

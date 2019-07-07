@@ -24,6 +24,7 @@ class UserController extends Controller
      *     summary="get all user",
      *     description="get all user on database and paginate then",
      *     path="/users",
+     *     security={{"bearerAuth": {}}},
      *     @OA\Response(
      *      response="200", description="List of users"
      *     ),
@@ -54,6 +55,7 @@ class UserController extends Controller
      *     summary="store a user",
      *     description="store a new user on database",
      *     path="/users",
+     *     security={{"bearerAuth": {}}},
      *     @OA\RequestBody(
      *          required=true,
      *       @OA\JsonContent(

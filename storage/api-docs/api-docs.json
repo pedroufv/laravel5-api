@@ -70,6 +70,54 @@
                 }
             }
         },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "revoke user token",
+                "description": "authenticated user request to revoke token",
+                "operationId": "App\\Http\\Controllers\\Api\\v1\\AuthController::logout",
+                "responses": {
+                    "200": {
+                        "description": "Logged out"
+                    },
+                    "401": {
+                        "description": "You are not authorize"
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "content": {
+                            "text/xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorModel"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorModel"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorModel"
+                                }
+                            },
+                            "application/xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorModel"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/users": {
             "get": {
                 "tags": [
@@ -107,14 +155,19 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
                     "users"
                 ],
                 "summary": "store a user",
-                "description": "encrypts password and store a user on database",
+                "description": "store a new user on database",
                 "operationId": "App\\Http\\Controllers\\Api\\v1\\UserController::store",
                 "requestBody": {
                     "required": true,
@@ -138,8 +191,8 @@
                     }
                 },
                 "responses": {
-                    "200": {
-                        "description": "New user"
+                    "201": {
+                        "description": "New user created"
                     },
                     "default": {
                         "description": "unexpected error",
@@ -166,7 +219,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         }
     },
@@ -187,6 +245,12 @@
                     }
                 },
                 "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
             }
         }
     }

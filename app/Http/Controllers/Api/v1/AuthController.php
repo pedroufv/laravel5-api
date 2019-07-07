@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+
 class AuthController extends Controller
 {
     public function register(Request $request)
@@ -67,6 +68,36 @@ class AuthController extends Controller
         return $this->respondWithToken($token);
     }
 
+
+    /**
+     * @OA\Post(
+     *     tags={"auth"},
+     *     summary="revoke user token",
+     *     description="authenticated user request to revoke token",
+     *     path="/logout",
+     *     security={{"bearerAuth": {}}},
+     *     @OA\Response(
+     *      response="200", description="Logged out"
+     *     ),
+     *     @OA\Response(
+     *      response="401", description="You are not authorize"
+     *     ),
+     *     @OA\Response(
+     *         response="default",
+     *         description="unexpected error",
+     *         @OA\JsonContent(ref="#/components/schemas/ErrorModel"),
+     *         @OA\XmlContent(ref="#/components/schemas/ErrorModel"),
+     *         @OA\MediaType(
+     *             mediaType="text/xml",
+     *             @OA\Schema(ref="#/components/schemas/ErrorModel")
+     *         ),
+     *         @OA\MediaType(
+     *             mediaType="text/html",
+     *             @OA\Schema(ref="#/components/schemas/ErrorModel")
+     *         )
+     *     )
+     * )
+     */
     public function logout()
     {
         auth()->logout();

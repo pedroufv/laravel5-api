@@ -12,8 +12,9 @@ This project is a [Laravel](https://github.com/laravel/laravel) API scaffold usi
 ## Install
 1. clone project ```git clone git@github.com:pedroufv/laravel5-api.git```
 2. install dependencies ```composer install```
-3. copy file .env.exemple and rename .env ```cp .env.exemple .env```
+3. copy file .env.exemple and rename .env ```cp .env.example .env```
 4. change .env settings
 5. generate key ```php artisan key:generate```
-6. create database ```echo "create database {dbname}" | mysql -u{username} -p```
-7. run migrate ```php artisan migrate --seed```
+6. generate jwt key ```php artisan jwt:secret```
+7. create database ```echo "create database {dbname}" | mysql -u {username} -p```
+8. run migrate ```php artisan migrate --seed```

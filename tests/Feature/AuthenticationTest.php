@@ -26,24 +26,6 @@ class AuthenticationTest extends TestCase
     /**
      * @test
      */
-    public function canRegisterUser()
-    {
-        $response = $this->post('api/v1/register', [
-            'name'     => 'Teste',
-            'email'    => 'test2@email.com',
-            'password' => '123456'
-        ]);
-
-        $response->assertJsonStructure([
-            'access_token',
-            'token_type',
-            'expires_in'
-        ]);
-    }
-
-    /**
-     * @test
-     */
     public function canLoginUser()
     {
         $response = $this->post('api/v1/login', [

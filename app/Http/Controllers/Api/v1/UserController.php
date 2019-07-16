@@ -19,30 +19,16 @@ class UserController extends Controller
 
 
     /**
-     * @OA\Get(
-     *     tags={"users"},
-     *     summary="get all user",
-     *     description="get all user on database and paginate then",
-     *     path="/users",
-     *     security={{"bearerAuth": {}}},
-     *     @OA\Response(
-     *      response="200", description="List of users"
-     *     ),
-     *     @OA\Response(
-     *         response="default",
-     *         description="unexpected error",
-     *         @OA\JsonContent(ref="#/components/schemas/ErrorModel"),
-     *         @OA\XmlContent(ref="#/components/schemas/ErrorModel"),
-     *         @OA\MediaType(
-     *             mediaType="text/xml",
-     *             @OA\Schema(ref="#/components/schemas/ErrorModel")
-     *         ),
-     *         @OA\MediaType(
-     *             mediaType="text/html",
-     *             @OA\Schema(ref="#/components/schemas/ErrorModel")
-     *         )
-     *     )
-     * )
+     *  @OA\Get(
+     *      tags={"users"},
+     *      summary="get all user",
+     *      description="get all user on database and paginate then",
+     *      path="/users",
+     *      security={{"bearerAuth": {}}},
+     *      @OA\Response(
+     *          response="200", description="List of users"
+     *      )
+     *  )
      */
     public function index()
     {
@@ -50,39 +36,25 @@ class UserController extends Controller
     }
 
     /**
-     * @OA\Post(
-     *     tags={"users"},
-     *     summary="store a user",
-     *     description="store a new user on database",
-     *     path="/users",
-     *     security={{"bearerAuth": {}}},
-     *     @OA\RequestBody(
+     *  @OA\Post(
+     *      tags={"users"},
+     *      summary="store a user",
+     *      description="store a new user on database",
+     *      path="/users",
+     *      security={{"bearerAuth": {}}},
+     *      @OA\RequestBody(
      *          required=true,
-     *       @OA\JsonContent(
-     *          type="object",
-     *          @OA\Property(property="name", type="string"),
-     *          @OA\Property(property="email", type="string"),
-     *          @OA\Property(property="password", type="string"),
-     *       )
-     *     ),
-     *     @OA\Response(
-     *      response="201", description="New user created"
-     *     ),
-     *     @OA\Response(
-     *         response="default",
-     *         description="unexpected error",
-     *         @OA\JsonContent(ref="#/components/schemas/ErrorModel"),
-     *         @OA\XmlContent(ref="#/components/schemas/ErrorModel"),
-     *         @OA\MediaType(
-     *             mediaType="text/xml",
-     *             @OA\Schema(ref="#/components/schemas/ErrorModel")
-     *         ),
-     *         @OA\MediaType(
-     *             mediaType="text/html",
-     *             @OA\Schema(ref="#/components/schemas/ErrorModel")
-     *         )
-     *     )
-     * )
+     *          @OA\JsonContent(
+     *              type="object",
+     *              @OA\Property(property="name", type="string"),
+     *              @OA\Property(property="email", type="string"),
+     *              @OA\Property(property="password", type="string"),
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response="201", description="New user created"
+     *      )
+     *  )
      */
     public function store()
     {

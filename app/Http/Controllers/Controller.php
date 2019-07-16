@@ -29,19 +29,3 @@ class Controller extends BaseController
  *      securityScheme="bearerAuth",
  *  )
  */
-
-/**
- *  @OA\Schema(
- *      schema="ErrorModel",
- *      required={"code", "message"},
- *      @OA\Property(
- *          property="code",
- *          type="integer",
- *          format="int32"
- *      ),
- *      @OA\Property(
- *          property="message",
- *          type="string"
- *      )
- * )
- */
